@@ -11,7 +11,8 @@ if (mysqli_connect_errno()) {
 
 $booking_id=$_POST['booking_id'];
 
-$query = mysqli_query($conn,"SELECT * FROM booking WHERE booking_id = '$booking_id' ");
+
+$query = mysqli_query($conn,"SELECT * FROM booking WHERE booking_id = '$booking_id' AND emp_id= '$emp_id' ");
 $data=mysqli_fetch_assoc($query);
 if($query)
 {
