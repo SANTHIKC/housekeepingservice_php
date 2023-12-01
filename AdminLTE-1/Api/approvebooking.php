@@ -12,11 +12,6 @@ $booking_id = $_POST['booking_id'];
 $query=mysqli_query($conn,"UPDATE booking set `status` = 'approve' WHERE booking_id='$booking_id' ");
 $query1=mysqli_query($conn,"INSERT INTO `booking_approve`( `booking_id`, `emp_id`, `status`) VALUES ('$booking_id','$emp_id','pending')");
 
-$joinquery1 =mysqli_query($conn,"SELECT employee_reg.name, booking.booking_id, booking.servicetype, booking.date,booking.status
-FROM employee_reg
-RIGHT JOIN booking
-ON employee_reg.booking_id = booking.booking_id
-ORDER BY employee_reg.emp_id;");
 
 if($query && $query1)
 {
