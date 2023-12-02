@@ -20,7 +20,7 @@ if (mysqli_query($conn, $sql)) {
      $booking_id = mysqli_insert_id($conn);
 
    
-        $query = mysqli_query($conn, "SELECT * FROM booking WHERE booking_id = '$booking_id'");
+        $query = mysqli_query($conn, "SELECT * FROM booking WHERE booking_id = '$booking_id' ");
         $data = mysqli_fetch_assoc($query);
 
         if ($query) {
