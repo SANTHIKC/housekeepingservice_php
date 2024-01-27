@@ -5,7 +5,9 @@ $conn = mysqli_connect("localhost", "root", "", "home_service");
 if (mysqli_connect_error()) {
     die("Error in connection");
 }
-$query = mysqli_query($conn,"SELECT * FROM user_reg");
+
+$query = isset($_POST['search_name']) ? mysqli_query($conn, "SELECT * FROM user_reg WHERE name LIKE '%".mysqli_real_escape_string($conn, $_POST['search_name'])."%'") : mysqli_query($conn,"SELECT * FROM user_reg");
+   
 ?>
 
 <!doctype html>

@@ -41,6 +41,7 @@ $sql=mysqli_query($conn,"INSERT INTO user_reg(user_name,email,address,phone_numb
  
  $log=mysqli_query($conn, "INSERT INTO login_emp_user(log_id,email,password,type)values('$user_id','$email','$password','user')");
  
+ 
 if($log)
 {
      $myarray['message'] = 'Added';

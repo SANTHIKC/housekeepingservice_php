@@ -10,6 +10,7 @@ if (mysqli_connect_errno()) {
 
 
 $user_id =$_POST['user_id'];
+$myarray['message'] = 'Added';
 $query = mysqli_query($conn,"SELECT * FROM user_reg WHERE user_id = '$user_id' ");
 $data=mysqli_fetch_assoc($query);
 if($query)

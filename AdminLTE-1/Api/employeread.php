@@ -5,7 +5,10 @@ $conn = mysqli_connect("localhost", "root", "", "home_service");
 if (mysqli_connect_error()) {
     die("Error in connection");
 }
-$query = mysqli_query($conn,"SELECT * FROM employee_reg");
+
+    // Use the entered name in the SQL query
+    $query = isset($_POST['search_name']) ? mysqli_query($conn, "SELECT * FROM employee_reg WHERE name LIKE '%".mysqli_real_escape_string($conn, $_POST['search_name'])."%'") : mysqli_query($conn,"SELECT * FROM employee_reg");
+   
 ?>
 
 <!doctype html>
@@ -22,6 +25,14 @@ $query = mysqli_query($conn,"SELECT * FROM employee_reg");
             <div class="col-4"></div>
             <div class="clo-4">
             <center><h1> Employee Registration </h1></center> 
+            <form method="post" action="employeread.php">
+    <!-- Your existing input fields -->
+    <!-- Add a new input field for the search name -->
+   
+    <input type="text" name="search_name"  id="search_name">
+    <button type="submit">Search</button>
+</form>
+
                 <center>
                 <table class="table table-bordered table-white text-dark mt-5 "style ="width:50%">
                     <thead>
@@ -56,7 +67,7 @@ $query = mysqli_query($conn,"SELECT * FROM employee_reg");
                             <td><?php echo $row['service_type']; ?></td>
                           <td> <img src="./image/<?php echo $row['photo'];?>"  width="75"  height="75" ></td> 
                           <td>
-                         <a href="delete_employee.php?emp_id=<?php echo $row['emp_id']; ?>" class="btn btn-danger" >Block</a>
+                         <a href="blockbuttonin.php?emp_id=<?php echo $row['emp_id']; ?>" class="btn btn-danger" >Block</a>
                              </td>
                           
                             
