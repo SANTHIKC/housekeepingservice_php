@@ -45,7 +45,7 @@ if (mysqli_connect_error()) {
                             <th>experience</th>
                             <th>service_type</th>
                             <th>photo</th>
-                            <th>Action</th>
+                            
                             
                            
                                 
@@ -66,9 +66,7 @@ if (mysqli_connect_error()) {
                             <td><?php echo $row['experience']; ?></td>
                             <td><?php echo $row['service_type']; ?></td>
                           <td> <img src="./image/<?php echo $row['photo'];?>"  width="75"  height="75" ></td> 
-                          <td>
-                         <a href="blockbuttonin.php?emp_id=<?php echo $row['emp_id']; ?>" class="btn btn-danger" >Block</a>
-                             </td>
+                          
                           
                             
                           

@@ -1,3 +1,15 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "", "home_service");
+
+if (mysqli_connect_error()) {
+    die("Error in connection");
+}
+$sql=mysqli_query($conn,"Select username from login where login_id= 1");
+$data=mysqli_fetch_assoc($sql);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -172,8 +184,12 @@
         <div class="image">
           <img src="Api\image\download (1).jpg" class="img-circle elevation-2" alt="User Image">
         </div>
-        <div class="info">
-          <a href="#" class="d-block">Santhi Kc</a>
+        <div class="info text-light">
+          <?php
+          echo $data['username'];
+          ?>
+      
+          <!-- <a href="#" class="d-block">Santhi Kc</a> -->
         </div>
       </div>
 
